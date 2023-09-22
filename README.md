@@ -1,2 +1,2 @@
 # flutter-calculator
-My project for try using flutter.
+My project to try using Flutter
