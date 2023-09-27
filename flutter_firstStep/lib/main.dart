@@ -67,6 +67,7 @@ class MyHomePage extends StatelessWidget {
                   },
                   child: Text('Like'),
                 ),
+                SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {
                     appState.getNext();
