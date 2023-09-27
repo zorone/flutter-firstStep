@@ -65,7 +65,7 @@ class MyHomePage extends StatelessWidget {
                   onPressed: () {
                     appState.toggleFavorite();
                   },
-                  child: Icon(Icons.favorite_border, semanticLabel: 'Like'),
+                  child: LikeButton(),
                 ),
                 SizedBox(width: 10),
                 ElevatedButton(
@@ -79,6 +79,23 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class LikeButton extends StatelessWidget {
+  const LikeButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Icon(Icons.favorite_border),
+        SizedBox(width: 10),
+        Text('Like'),
+      ],
     );
   }
 }
