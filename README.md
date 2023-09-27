@@ -1,4 +1,2 @@
-# flutter-calculator
+# flutter-firstStep
 My project to try using Flutter
-
-Calculator program for mathematics and science students.
