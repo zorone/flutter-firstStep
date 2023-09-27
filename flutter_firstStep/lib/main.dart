@@ -34,13 +34,13 @@ class MyAppState extends ChangeNotifier {
   }
 
   var favorites = <WordPair>[];
-  var icon = Icon(Icons.favorite_border);
+  var icon = Icons.favorite_border;
 
   void checkFavorite() {
     if (favorites.contains(current)) {
-      icon = Icon(Icons.favorite);
+      icon = Icons.favorite;
     } else {
-      icon = Icon(Icons.favorite_border);
+      icon = Icons.favorite_border;
     }
     notifyListeners();
   }
@@ -100,7 +100,7 @@ class LikeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>;
+    var appState = context.watch<MyAppState>();
     return Row(
       children: [
         Icon(appState.icon),
