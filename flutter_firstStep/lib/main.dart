@@ -61,12 +61,11 @@ class MyHomePage extends StatelessWidget {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                IconButton(
-                  icon: const Icon(Icons.favorite_border),
+                ElevatedButton(
                   onPressed: () {
                     appState.toggleFavorite();
                   },
-                  // children: Text('Like'),
+                  child: Icon(Icons.favorite_border),
                 ),
                 SizedBox(width: 10),
                 ElevatedButton(
