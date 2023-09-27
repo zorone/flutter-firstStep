@@ -35,7 +35,7 @@ class MyAppState extends ChangeNotifier {
   }
 
   var favorites = <WordPair>[];
-  var icon = Icons.favorite_border;
+  IconData icon = Icons.favorite_border;
 
   void checkFavorite() {
     if (favorites.contains(current)) {
@@ -43,7 +43,6 @@ class MyAppState extends ChangeNotifier {
     } else {
       icon = Icons.favorite_border;
     }
-    notifyListeners();
   }
 
   void toggleFavorite() {
