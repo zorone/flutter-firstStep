@@ -65,7 +65,7 @@ class MyHomePage extends StatelessWidget {
                   onPressed: () {
                     appState.toggleFavorite();
                   },
-                  child: Icon(Icons.favorite_border),
+                  child: Icon(Icons.favorite_border, semanticLabel: 'Like'),
                 ),
                 SizedBox(width: 10),
                 ElevatedButton(
