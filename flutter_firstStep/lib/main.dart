@@ -63,6 +63,12 @@ class MyHomePage extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
+                    appState.toggleFavorite();
+                  },
+                  child: Text('Like'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
                     appState.getNext();
                   },
                   child: Text('Next'),
