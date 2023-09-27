@@ -30,6 +30,7 @@ class MyAppState extends ChangeNotifier {
 
   void getNext() {
     current = WordPair.random();
+    checkFavorite();
     notifyListeners();
   }
 
@@ -48,8 +49,10 @@ class MyAppState extends ChangeNotifier {
   void toggleFavorite() {
     if (favorites.contains(current)) {
       favorites.remove(current);
+      icon = Icons.favorite_border;
     } else {
       favorites.add(current);
+      icon = Icons.favorite;
     }
     notifyListeners();
   }
