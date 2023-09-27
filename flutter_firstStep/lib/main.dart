@@ -30,28 +30,16 @@ class MyAppState extends ChangeNotifier {
 
   void getNext() {
     current = WordPair.random();
-    checkFavorite();
     notifyListeners();
   }
 
   var favorites = <WordPair>[];
-  IconData icon = Icons.favorite_border;
-
-  void checkFavorite() {
-    if (favorites.contains(current)) {
-      icon = Icons.favorite;
-    } else {
-      icon = Icons.favorite_border;
-    }
-  }
 
   void toggleFavorite() {
     if (favorites.contains(current)) {
       favorites.remove(current);
-      icon = Icons.favorite_border;
     } else {
       favorites.add(current);
-      icon = Icons.favorite;
     }
     notifyListeners();
   }
@@ -63,6 +51,13 @@ class MyHomePage extends StatelessWidget {
     var appState = context.watch<MyAppState>();
     var pair = appState.current;
 
+    IconData icon;
+    if (appState.favorites.contains(pair)) {
+      icon = Icons.favorite;
+    } else {
+      icon = Icons.favorite_border;
+    }
+
     return Scaffold(
       body: Center(
         child: Column(
@@ -73,11 +68,12 @@ class MyHomePage extends StatelessWidget {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                ElevatedButton(
+                ElevatedButton.icon(
                   onPressed: () {
                     appState.toggleFavorite();
                   },
-                  child: LikeButton(),
+                  icon: Icon(icon),
+                  label: Text('Like'),
                 ),
                 SizedBox(width: 10),
                 ElevatedButton(
@@ -91,24 +87,6 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class LikeButton extends StatelessWidget {
-  const LikeButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
-    return Row(
-      children: [
-        Icon(appState.icon),
-        SizedBox(width: 10),
-        Text('Like'),
-      ],
     );
   }
 }
