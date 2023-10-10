@@ -28,13 +28,6 @@ class MyApp extends StatelessWidget {
 class MyAppState extends ChangeNotifier {
   var current = WordPair.random();
   var favorites = <WordPair>[];
-  var selectedIndex = 0;
-  var selectedIndexInAnotherWidget = 0;
-  var indexInYetAnotherWidget = 42;
-  var optionASelected = false;
-  var optionBSelected = false;
-  var loadingFromNetwork = false;
-  // ...
 
   void getNext() {
     current = WordPair.random();
@@ -51,7 +44,12 @@ class MyAppState extends ChangeNotifier {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
